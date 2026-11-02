@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khyros Studios | Em Breve</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0b0c10;
+            color: #c5c6c7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            overflow-hidden;
+            position: relative;
+        }
+
+        /* Efeito de brilho ao fundo */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(102, 252, 241, 0.15);
+            filter: blur(120px);
+            border-radius: 50%;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 650px;
+            width: 100%;
+            background: rgba(31, 40, 51, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(102, 252, 241, 0.3);
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(102, 252, 241, 0.1);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            display: inline-block;
+            background: rgba(102, 252, 241, 0.1);
+            color: #66fcf1;
+            border: 1px solid #66fcf1;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #ffffff;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        p {
+            color: #a4a6a8;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Área dos bonequinhos / avatares em animação */
+        .dev-team {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin: 25px 0 35px 0;
+        }
+
+        .dev-character {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .dev-character:nth-child(2) {
+            animation-delay: 0.6s;
+        }
+
+        .dev-character:nth-child(3) {
+            animation-delay: 1.2s;
+        }
+
+        .avatar-box {
+            width: 70px;
+            height: 70px;
+            background: #12151c;
+            border: 2px solid #45a29e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            position: relative;
+        }
+
+        .role-tag {
+            font-size: 0.75rem;
+            color: #66fcf1;
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        /* Animação de flutuação dos bonecos */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .btn-discord {
+            display: inline-block;
+            background: #5865F2;
+            color: #ffffff;
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+        }
+
+        .btn-discord:hover {
+            background: #4752C4;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.5);
+        }
+
+        footer {
+            margin-top: 30px;
+            color: #555;
+            font-size: 0.85rem;
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="badge">🛠️ Em Desenvolvimento</div>
+        
+        <h1>Khyros Studios</h1>
+        
+        <p>Estamos construindo uma nova experiência incrível para você. Nosso site oficial e o jogo <strong>The Tunnel Lockdown</strong> estão recebendo os últimos ajustes!</p>
+
+        <!-- Bonequinhos estilizados trabalhando -->
+        <div class="dev-team">
+            <div class="dev-character">
+                <div class="avatar-box">👨‍💻</div>
+                <span class="role-tag">Programação</span>
+            </div>
+            <div class="dev-character">
+                <div class="avatar-box">🛠️</div>
+                <span class="role-tag">Construção</span>
+            </div>
+            <div class="dev-character">
+                <div class="avatar-box">🧟‍♂️</div>
+                <span class="role-tag">Design & Animação</span>
+            </div>
+        </div>
+
+        <a href="https://discord.gg/EFJBDGYjY3a" target="_blank" class="btn-discord">
+            Entrar no Nosso Discord 🎮
+        </a>
+    </div>
+
+    <footer>
+        &copy; 2026 Khyros Studios. Todos os direitos reservados.
+    </footer>
+
+</body>
+</html>
