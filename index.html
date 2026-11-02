@@ -3,202 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khyros Studios | Em Breve</title>
+    <title>Khyrs Studios | Em Breve</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            background-color: #0b0c10;
+            background: #7EC8F8;
+            background: linear-gradient(#7EC8F8 30%, #4A90D9);
+            background-attachment: fixed;
             color: #c5c6c7;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            padding: 20px;
-            overflow-hidden;
+            padding: 15px;
             position: relative;
+            overflow-x: hidden;
+            overflow-y: auto;
+            height: 100vh;
+            overscroll-behavior: none;
         }
-
-        /* Efeito de brilho ao fundo */
+        /* fundo com nuvens */
         body::before {
             content: '';
             position: absolute;
-            width: 300px;
-            height: 300px;
-            background: rgba(102, 252, 241, 0.15);
-            filter: blur(120px);
-            border-radius: 50%;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            inset: 0;
+            background: url('https://picsum.photos/id/1015/1920/1080') center/cover;
             z-index: 0;
+            opacity: 0.28;
+            animation: cloudMove 80s linear infinite;
         }
-
+        @keyframes cloudMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: -200% 50%; }
+        }
         .container {
-            max-width: 650px;
+            max-width: 620px;
             width: 100%;
-            background: rgba(31, 40, 51, 0.7);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(102, 252, 241, 0.3);
-            border-radius: 16px;
-            padding: 40px 30px;
-            box-shadow: 0 0 30px rgba(0, 0, 0, 0.8), 0 0 15px rgba(102, 252, 241, 0.1);
+            background: rgba(31, 40, 51, 0.78);
+            backdrop-filter: blur(16px);
+            border: 2px solid rgba(102, 252, 241, 0.35);
+            border-radius: 20px;
+            padding: 35px 25px;
+            box-shadow: 0 20px 45px rgba(0,0,0,0.7), 0 0 40px rgba(102,252,241,0.3);
             text-align: center;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
-
         .badge {
             display: inline-block;
-            background: rgba(102, 252, 241, 0.1);
+            background: rgba(102, 252, 241, 0.18);
             color: #66fcf1;
-            border: 1px solid #66fcf1;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            letter-spacing: 1px;
+            border: 2px solid #66fcf1;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 3px;
             text-transform: uppercase;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
+            box-shadow: 0 0 15px rgba(102,252,241,0.6);
+            animation: badgeGlow 2.5s ease-in-out infinite;
         }
-
+        @keyframes badgeGlow { 0%,100% { box-shadow: 0 0 15px rgba(102,252,241,0.5); } 50% { box-shadow: 0 0 30px rgba(102,252,241,0.9); } }
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             color: #ffffff;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
+            margin-bottom: 6px;
+            letter-spacing: 4px;
             text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(255,255,255,0.45);
         }
-
         p {
             color: #a4a6a8;
             font-size: 1.05rem;
             line-height: 1.6;
-            margin-bottom: 30px;
+            margin-bottom: 22px;
         }
-
-        /* Área dos bonequinhos / avatares em animação */
-        .dev-team {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
-            margin: 25px 0 35px 0;
-        }
-
-        .dev-character {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .dev-character:nth-child(2) {
-            animation-delay: 0.6s;
-        }
-
-        .dev-character:nth-child(3) {
-            animation-delay: 1.2s;
-        }
-
-        .avatar-box {
-            width: 70px;
-            height: 70px;
-            background: #12151c;
-            border: 2px solid #45a29e;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+        .plaque {
             position: relative;
-        }
-
-        .role-tag {
-            font-size: 0.75rem;
-            color: #66fcf1;
-            margin-top: 8px;
-            font-weight: 600;
-        }
-
-        /* Animação de flutuação dos bonecos */
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .btn-discord {
             display: inline-block;
-            background: #5865F2;
-            color: #ffffff;
-            padding: 14px 28px;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 520px;
+        }
+        .plaque-frame {
+            width: 100%;
+            background: #c9a66b;
+            border: 12px solid #3f2a1f;
             border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
+            padding: 22px 18px;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.7), inset 0 0 30px rgba(255,220,140,0.45);
+        }
+        .plaque-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #3f2a1f;
+            line-height: 1.4;
+            text-shadow: 3px 3px 0 #f4d09e;
+        }
+        .explanation {
             font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(88, 101, 242, 0.3);
+            color: #a4a6a8;
+            line-height: 1.6;
+            max-width: 520px;
+            margin: 18px auto 25px;
+            background: rgba(31, 40, 51, 0.65);
+            padding: 20px 18px;
+            border-radius: 12px;
+            border: 1px dashed rgba(102, 252, 241, 0.35);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
         }
-
-        .btn-discord:hover {
-            background: #4752C4;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(88, 101, 242, 0.5);
-        }
-
-        footer {
-            margin-top: 30px;
-            color: #555;
-            font-size: 0.85rem;
+        /* BOTÃO DENTRO DA CAIXA */
+        .discord-box {
+            margin: 25px auto 20px;
+            width: 100%;
+            max-width: 520px;
+            background: #c9a66b;
+            border: 12px solid #3f2a1f;
+            border-radius: 8px;
+            padding: 20px 18px;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.7), inset 0 0 30px rgba(255,220,140,0.45);
             position: relative;
-            z-index: 1;
+        }
+        .discord-box a {
+            display: inline-block;
+            background: linear-gradient(#5865F2, #4752C4);
+            color: #fff;
+            padding: 12px 35px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: all 0.4s ease;
+            box-shadow: 0 6px 20px rgba(88,101,242,0.45);
+        }
+        .discord-box a:hover {
+            background: linear-gradient(#4752C4, #5865F2);
+            transform: translateY(-4px) scale(1.04);
+            box-shadow: 0 10px 30px rgba(88,101,242,0.65);
+        }
+        .footer {
+            margin-top: 25px;
+            font-size: 0.8rem;
+            color: #000; /* preto */
+        }
+        /* Easter Egg */
+        .hiding-face {
+            position: fixed;
+            font-size: 4rem;
+            z-index: 99999;
+            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+            pointer-events: none;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <div class="badge">🛠️ Em Desenvolvimento</div>
-        
-        <h1>Khyros Studios</h1>
-        
-        <p>Estamos construindo uma nova experiência incrível para você. Nosso site oficial e o jogo <strong>The Tunnel Lockdown</strong> estão recebendo os últimos ajustes!</p>
+        <div class="badge">🛠️ EM DESENVOLVIMENTO</div>
+        <h1 id="title">Khyros Studios</h1>
 
-        <!-- Bonequinhos estilizados trabalhando -->
-        <div class="dev-team">
-            <div class="dev-character">
-                <div class="avatar-box">👨‍💻</div>
-                <span class="role-tag">Programação</span>
-            </div>
-            <div class="dev-character">
-                <div class="avatar-box">🛠️</div>
-                <span class="role-tag">Construção</span>
-            </div>
-            <div class="dev-character">
-                <div class="avatar-box">🧟‍♂️</div>
-                <span class="role-tag">Design & Animação</span>
+        <div class="plaque">
+            <div class="plaque-frame">
+                <div class="plaque-text">Estamos construindo o site ainda, mas obrigado pela paciência!</div>
             </div>
         </div>
 
-        <a href="https://discord.gg/EFJBDGYjY3a" target="_blank" class="btn-discord">
-            Entrar no Nosso Discord 🎮
-        </a>
+        <div class="explanation">
+            Somos um estúdio pequeno. 
+
+            Fazemos jogos simples no Roblox Studio e Unity, coisas assim. Não temos exatamente uma categoria de jogos que produzimos definida.
+        </div>
+
+        <!-- BOTÃO DENTRO DA CAIXA -->
+        <div class="discord-box">
+            <a href="https://discord.gg/EfJBGYjY3a" target="_blank" class="btn-discord">
+                🎮 Entrar no Nosso Discord
+            </a>
+        </div>
     </div>
 
-    <footer>
-        &copy; 2026 Khyros Studios. Todos os direitos reservados.
-    </footer>
+    <div class="footer">
+        &copy; 2026 Khyrs Studios. Todos os direitos reservados.
+    </div>
 
+    <script>
+        // Easter Egg
+        let kClicks = 0;
+        const title = document.getElementById('title');
+        title.addEventListener('click', () => {
+            kClicks++;
+            if (kClicks >= 5) {
+                spawnHidingFace();
+                kClicks = 0;
+            }
+        });
+        function spawnHidingFace() {
+            const face = document.createElement('div');
+            face.className = 'hiding-face';
+            face.textContent = '🥸';
+            face.style.left = Math.random() * 100 + 'vw';
+            face.style.top = Math.random() * 60 + 'vh';
+            document.body.appendChild(face);
+            const left = Math.random() * 120 - 20;
+            const right = left + 120;
+            face.style.left = left + 'vw';
+            setTimeout(() => {
+                face.style.transition = 'all 4s cubic-bezier(0.68, -0.55, 0.27, 1.55)';
+                face.style.left = right + 'vw';
+                face.style.top = (Math.random() * 60 + 10) + 'vh';
+            }, 50);
+            setTimeout(() => face.remove(), 5500);
+        }
+        document.body.style.scrollBehavior = 'smooth';
+    </script>
 </body>
 </html>
