@@ -1,221 +1,125 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Khyrs Studios | Em Breve</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            background: #7EC8F8;
-            background: linear-gradient(#7EC8F8 30%, #4A90D9);
-            background-attachment: fixed;
-            color: #c5c6c7;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 15px;
-            position: relative;
-            overflow-x: hidden;
-            overflow-y: auto;
-            height: 100vh;
-            overscroll-behavior: none;
-        }
-        /* fundo com nuvens */
-        body::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: url('https://picsum.photos/id/1015/1920/1080') center/cover;
-            z-index: 0;
-            opacity: 0.28;
-            animation: cloudMove 80s linear infinite;
-        }
-        @keyframes cloudMove {
-            0% { background-position: 0% 50%; }
-            100% { background-position: -200% 50%; }
-        }
-        .container {
-            max-width: 620px;
-            width: 100%;
-            background: rgba(31, 40, 51, 0.78);
-            backdrop-filter: blur(16px);
-            border: 2px solid rgba(102, 252, 241, 0.35);
-            border-radius: 20px;
-            padding: 35px 25px;
-            box-shadow: 0 20px 45px rgba(0,0,0,0.7), 0 0 40px rgba(102,252,241,0.3);
-            text-align: center;
-            position: relative;
-            z-index: 2;
-        }
-        .badge {
-            display: inline-block;
-            background: rgba(102, 252, 241, 0.18);
-            color: #66fcf1;
-            border: 2px solid #66fcf1;
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 18px;
-            box-shadow: 0 0 15px rgba(102,252,241,0.6);
-            animation: badgeGlow 2.5s ease-in-out infinite;
-        }
-        @keyframes badgeGlow { 0%,100% { box-shadow: 0 0 15px rgba(102,252,241,0.5); } 50% { box-shadow: 0 0 30px rgba(102,252,241,0.9); } }
-        h1 {
-            font-size: 2.8rem;
-            color: #ffffff;
-            margin-bottom: 6px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            text-shadow: 0 0 20px rgba(255,255,255,0.45);
-        }
-        p {
-            color: #a4a6a8;
-            font-size: 1.05rem;
-            line-height: 1.6;
-            margin-bottom: 22px;
-        }
-        .plaque {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 20px;
-            width: 100%;
-            max-width: 520px;
-        }
-        .plaque-frame {
-            width: 100%;
-            background: #c9a66b;
-            border: 12px solid #3f2a1f;
-            border-radius: 8px;
-            padding: 22px 18px;
-            box-shadow: 0 12px 25px rgba(0,0,0,0.7), inset 0 0 30px rgba(255,220,140,0.45);
-        }
-        .plaque-text {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: #3f2a1f;
-            line-height: 1.4;
-            text-shadow: 3px 3px 0 #f4d09e;
-        }
-        .explanation {
-            font-size: 1rem;
-            color: #a4a6a8;
-            line-height: 1.6;
-            max-width: 520px;
-            margin: 18px auto 25px;
-            background: rgba(31, 40, 51, 0.65);
-            padding: 20px 18px;
-            border-radius: 12px;
-            border: 1px dashed rgba(102, 252, 241, 0.35);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-        }
-        /* BOTÃO DENTRO DA CAIXA */
-        .discord-box {
-            margin: 25px auto 20px;
-            width: 100%;
-            max-width: 520px;
-            background: #c9a66b;
-            border: 12px solid #3f2a1f;
-            border-radius: 8px;
-            padding: 20px 18px;
-            box-shadow: 0 12px 25px rgba(0,0,0,0.7), inset 0 0 30px rgba(255,220,140,0.45);
-            position: relative;
-        }
-        .discord-box a {
-            display: inline-block;
-            background: linear-gradient(#5865F2, #4752C4);
-            color: #fff;
-            padding: 12px 35px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.05rem;
-            transition: all 0.4s ease;
-            box-shadow: 0 6px 20px rgba(88,101,242,0.45);
-        }
-        .discord-box a:hover {
-            background: linear-gradient(#4752C4, #5865F2);
-            transform: translateY(-4px) scale(1.04);
-            box-shadow: 0 10px 30px rgba(88,101,242,0.65);
-        }
-        .footer {
-            margin-top: 25px;
-            font-size: 0.8rem;
-            color: #000; /* preto */
-        }
-        /* Easter Egg */
-        .hiding-face {
-            position: fixed;
-            font-size: 4rem;
-            z-index: 99999;
-            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-            pointer-events: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Khyros Studios: jogos no Roblox Studio e Unity</title>
+  <meta name="description" content="Khyros Studios é um estúdio pequeno que cria jogos simples no Roblox Studio e na Unity. Entre no nosso Discord.">
+  <meta property="og:title" content="Khyros Studios">
+  <meta property="og:description" content="Um estúdio pequeno que faz jogos no Roblox Studio e na Unity.">
+  <meta property="og:image" content="assets/img/poster.jpg">
+  <meta name="theme-color" content="#38b6ff">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Figtree:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="badge">🛠️ EM DESENVOLVIMENTO</div>
-        <h1 id="title">Khyros Studios</h1>
+  <a class="skip" href="#main">Pular para o conteúdo</a>
+  <div class="sky" aria-hidden="true"></div>
 
-        <div class="plaque">
-            <div class="plaque-frame">
-                <div class="plaque-text">Estamos construindo o site ainda, mas obrigado pela paciência!</div>
-            </div>
-        </div>
-
-        <div class="explanation">
-            Somos um estúdio pequeno. 
-
-            Fazemos jogos simples no Roblox Studio e Unity, coisas assim. Não temos exatamente uma categoria de jogos que produzimos definida.
-        </div>
-
-        <!-- BOTÃO DENTRO DA CAIXA -->
-        <div class="discord-box">
-            <a href="https://discord.gg/EfJBGYjY3a" target="_blank" class="btn-discord">
-                🎮 Entrar no Nosso Discord
-            </a>
-        </div>
+  <header class="top">
+    <a class="brand" href="#home" data-go="home" aria-label="Khyros Studios, ir para Home">
+      <img src="assets/img/favicon.png" alt="" width="34" height="34">
+      <span>Khyros Studios</span>
+    </a>
+    <div class="tabs" role="tablist" aria-label="Seções do site">
+      <button role="tab" id="t-home" aria-controls="p-home" data-tab="home">Home</button>
+      <button role="tab" id="t-sobre" aria-controls="p-sobre" data-tab="sobre">Sobre</button>
+      <button role="tab" id="t-video" aria-controls="p-video" data-tab="video">Vídeo</button>
+      <button role="tab" id="t-social" aria-controls="p-social" data-tab="social">Social</button>
+      <button role="tab" id="t-regras" aria-controls="p-regras" data-tab="regras">Regras</button>
     </div>
-
-    <div class="footer">
-        &copy; 2026 Khyrs Studios. Todos os direitos reservados.
+    <div class="top-actions">
+      <button class="sound" id="sound" type="button" aria-pressed="true">Som ligado</button>
+      <a class="btn btn-discord btn-sm" href="https://discord.gg/EfJBGYjY3a" target="_blank" rel="noopener">Discord</a>
     </div>
+  </header>
 
-    <script>
-        // Easter Egg
-        let kClicks = 0;
-        const title = document.getElementById('title');
-        title.addEventListener('click', () => {
-            kClicks++;
-            if (kClicks >= 5) {
-                spawnHidingFace();
-                kClicks = 0;
-            }
-        });
-        function spawnHidingFace() {
-            const face = document.createElement('div');
-            face.className = 'hiding-face';
-            face.textContent = '🥸';
-            face.style.left = Math.random() * 100 + 'vw';
-            face.style.top = Math.random() * 60 + 'vh';
-            document.body.appendChild(face);
-            const left = Math.random() * 120 - 20;
-            const right = left + 120;
-            face.style.left = left + 'vw';
-            setTimeout(() => {
-                face.style.transition = 'all 4s cubic-bezier(0.68, -0.55, 0.27, 1.55)';
-                face.style.left = right + 'vw';
-                face.style.top = (Math.random() * 60 + 10) + 'vh';
-            }, 50);
-            setTimeout(() => face.remove(), 5500);
-        }
-        document.body.style.scrollBehavior = 'smooth';
-    </script>
+  <main id="main">
+    <section class="panel home" role="tabpanel" id="p-home" aria-labelledby="t-home" hidden>
+      <img class="pad pad-l" src="assets/img/controller.png" alt="" width="134" height="94">
+      <div class="home-center">
+        <h1 class="sr">Khyros Studios</h1>
+        <img id="logo" class="logo" src="assets/img/logo-wide.png" alt="Logo da Khyros Studios" width="1100" height="520">
+        <p class="lead">Jogos simples para Roblox e Unity, feitos por um estúdio pequeno.</p>
+        <div class="actions">
+          <a class="btn btn-discord" href="https://discord.gg/EfJBGYjY3a" target="_blank" rel="noopener">Entrar no Discord</a>
+          <a class="btn btn-ghost" href="#video" data-go="video">Ver a introdução</a>
+        </div>
+      </div>
+      <img class="pad pad-r" src="assets/img/controller.png" alt="" width="134" height="94">
+    </section>
+
+    <section class="panel" role="tabpanel" id="p-sobre" aria-labelledby="t-sobre" hidden>
+      <div class="wrap">
+        <h2>Um estúdio pequeno, sem categoria fixa.</h2>
+        <div class="about">
+          <p class="big">A Khyros Studios cria jogos simples no Roblox Studio e na Unity. Não temos um gênero definido: cada projeto nasce de uma ideia nova e a gente vai atrás dela.</p>
+          <dl class="facts px">
+            <div><dt>Ferramentas</dt><dd>Roblox Studio e Unity</dd></div>
+            <div><dt>Desenvolvedor</dt><dd>Dhaaank <span>(DhaaankMK / Dhaaank90)</span></dd></div>
+            <div><dt>Contato</dt><dd>Discord da comunidade</dd></div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" role="tabpanel" id="p-video" aria-labelledby="t-video" hidden>
+      <div class="wrap center">
+        <h2>Conheça nossa introdução!</h2>
+        <div class="frame">
+          <video controls preload="metadata" playsinline poster="assets/img/poster.jpg">
+            <source src="assets/img/intro.mp4" type="video/mp4">
+            Seu navegador não reproduz este vídeo. <a href="assets/img/intro.mp4">Baixe a introdução</a>.
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" role="tabpanel" id="p-social" aria-labelledby="t-social" hidden>
+      <div class="wrap">
+        <div class="join px">
+          <div>
+            <h2>Vem jogar, perguntar e acompanhar com a gente.</h2>
+            <p>No Discord você encontra tutoriais e FAQ, abre ticket quando precisa de suporte e vê o que estamos desenvolvendo.</p>
+          </div>
+          <div class="join-actions">
+            <a class="btn btn-discord" href="https://discord.gg/EfJBGYjY3a" target="_blank" rel="noopener">Entrar no Discord</a>
+            <button class="btn btn-ghost" id="copy" type="button" data-link="https://discord.gg/EfJBGYjY3a">Copiar convite</button>
+            <span class="status" id="status" role="status"></span>
+          </div>
+        </div>
+        <ul class="social">
+          <li><a href="https://www.youtube.com/@KhyrosStudios" target="_blank" rel="noopener"><b>YouTube</b><span>@KhyrosStudios</span></a></li>
+          <li><a href="https://www.tiktok.com/@khyrosstudiosofc" target="_blank" rel="noopener"><b>TikTok</b><span>@khyrosstudiosofc</span></a></li>
+          <li><a href="https://www.instagram.com/khyros_studios/" target="_blank" rel="noopener"><b>Instagram</b><span>@khyros_studios</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="panel" role="tabpanel" id="p-regras" aria-labelledby="t-regras" hidden>
+      <div class="wrap">
+        <h2>Regras da comunidade</h2>
+        <ol class="rules">
+          <li class="px"><h3>Respeito e ética</h3><p>Mantenha um ambiente saudável. Ataques, assédio, racismo, homofobia ou qualquer preconceito não serão tolerados e resultam em banimento imediato e severo.</p></li>
+          <li class="px"><h3>Sem autopromoção</h3><p>Não divulgue outros scripts, servidores do Discord ou serviços de terceiros sem permissão prévia da administração.</p></li>
+          <li class="px"><h3>Suporte técnico</h3><p>Antes de abrir um ticket, consulte os canais de Tutoriais e FAQ. Ao pedir ajuda, descreva o erro com detalhes.</p></li>
+          <li class="px"><h3>Sem venda ou troca</h3><p>É proibido vender ou trocar contas, scripts ou quaisquer itens ilícitos dentro do servidor.</p></li>
+          <li class="px"><h3>Conteúdo seguro</h3><p>Não publique links maliciosos, vírus, rastreadores de IP (IP loggers) ou qualquer conteúdo que comprometa a segurança dos membros.</p></li>
+          <li class="px"><h3>Respeite a equipe</h3><p>As decisões de administradores e moderadores são definitivas. Em caso de dúvida sobre a equipe, abra um ticket no servidor.</p></li>
+        </ol>
+        <p class="note">Não fazemos parcerias.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <p>&copy; 2026 Khyros Studios. Todos os direitos reservados.</p>
+    <p>Feito por Dhaaank.</p>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
 </body>
 </html>
